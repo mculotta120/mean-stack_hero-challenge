@@ -55,6 +55,6 @@ app.post('/deletePost', function (req, res){
   }); //end findOne
 });// end deletePost
 
-app.listen( 3000, 'localhost', function( req, res ){ // spins up server
-  console.log( 'listening on 3000' );
+app.listen( 4242, 'localhost', function( req, res ){ // spins up server
+  console.log( 'listening on 4242' );
 });

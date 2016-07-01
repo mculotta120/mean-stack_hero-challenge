@@ -19,7 +19,7 @@
   <button type="button" name="button" ng-click= "addHero()">Add</button>
   <h2>Display Heroes</h2>
   <button ng-click= "getHeroes()" >Show me some Heroes</button>
-  <p ng-repeat='record in allHeroes'>{{ record.alias }} {{ record.first_name }} {{ record.last_name }}{{ record.city }} {{ record.power_name }}
+  <p ng-repeat='record in allHeroes'><b>Hero: </b>{{ record.alias }}<b> Name: </b> {{ record.first_name }} {{ record.last_name }} <b>City: </b>{{ record.city }} <b>Power: </b> {{ record.power_name }}
   <br><button id="deleteButton" ng-click="deleteHero($index)">delete</button>
   </p>
   </div>
