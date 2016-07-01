@@ -15,7 +15,7 @@
   <input type= "text" ng-model= "first_nameBinder" value= "" placeholder="First Name">
   <input type= "text" ng-model= "last_nameBinder" value= "" placeholder="Last Name">
   <input type= "text" ng-model= "cityBinder" value= "" placeholder="City">
-  <input type= "text" ng-model= "power_nameBinder" value= "" placeholder="Power">
+  <select ng-model= "power_nameSelect" ng-options= "x for x in powers"></select>
   <button type="button" name="button" ng-click= "addHero()">Add</button>
   <h2>Display Heroes</h2>
   <button ng-click= "getHeroes()" >Show me some Heroes</button>

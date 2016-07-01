@@ -3,7 +3,7 @@ console.log('sourced');
 var myApp = angular.module('myApp', []);
 
 myApp.controller( 'heroController', [ '$scope', '$http', function( $scope, $http ){
-
+  $scope.powers = ["Invisibility", "Flight", "Super Speed", "Heat Vision", "Super Strength", "Accelerated Healing", "Power Blast", "Animal Affinity"];
   $scope.allHeroes = [];
 
   event.preventDefault();
@@ -26,7 +26,7 @@ myApp.controller( 'heroController', [ '$scope', '$http', function( $scope, $http
       first_name: $scope.first_nameBinder,
       last_name: $scope.last_nameBinder,
       city: $scope.cityBinder,
-      power_name: $scope.power_nameBinder  // reference these in html
+      power_name: $scope.power_nameSelect  // reference these in html
 
     }; //end objectToSend
 
