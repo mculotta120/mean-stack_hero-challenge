@@ -1,16 +1,19 @@
 var express = require('express');
 var app = express();
-var bodyParser = require('body-parser');  // require bodyparser for POST calls
 
+var bodyParser = require('body-parser');  // require bodyparser for POST calls
+var mongoose = require('mongoose');  // require mongoose for mongo db
 var path = require('path');
 
-var heroescollection = require('../models/heroes.js');  // requiring the heroes model
-var mongoose = require('mongoose');  // require mongoose for mongo db
+var removehero = require('../routes/removehero'); //require route
 
-app.use( bodyParser.json() );
+var heroescollection = require('../models/heroes.js');  // requiring the heroes model
 
 mongoose.connect('localhost:/herodb');
 
+app.use( bodyParser.json() );
+
+app.use( '/deletePost', removehero); //use removehero route
 app.use( express.static( 'public' ) );
 
 app.get( '/', function( req, res ){    // set basic url
@@ -39,21 +42,21 @@ app.post( '/heroPost', function( req, res ){  // POST call
 });
 
 
-app.post('/deletePost', function (req, res){
-  var heroToDelete = {
-    id : req.body.id
-    };// end heroToDelete
-  heroescollection.findOne({_id:req.body.id}, function(err, heroesResult){
-  if(err){
-    console.log(err);
-    res.sendStatus(500);
-  }else{
-    heroescollection.remove({_id:req.body.id}, function(err){});
-    console.log(req.body.id + " removed");
-    res.sendStatus(200);
-  }
-  }); //end findOne
-});// end deletePost
+// app.post('/deletePost', function (req, res){
+//   var heroToDelete = {
+//     id : req.body.id
+//     };// end heroToDelete
+//   heroescollection.findOne({_id:req.body.id}, function(err, heroesResult){
+//   if(err){
+//     console.log(err);
+//     res.sendStatus(500);
+//   }else{
+//     heroescollection.remove({_id:req.body.id}, function(err){});
+//     console.log(req.body.id + " removed");
+//     res.sendStatus(200);
+//   }
+//   }); //end findOne
+// });// end deletePost
 
 app.listen( 4242, 'localhost', function( req, res ){ // spins up server
   console.log( 'listening on 4242' );
