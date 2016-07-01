@@ -7,9 +7,22 @@
     <script src= "/scripts/client.js" type="text/javascript"></script>
   </head>
   <body>
-<p>
-  test
-</p>
+
+<h1> Enter Hero </h1>
+  <div ng-controller = 'heroController'>
+    <h2> Add Assignment </h2>
+  <input type= "text" ng-model= "aliasBinder" value= "" placeholder="Aias">
+  <input type= "text" ng-model= "first_nameBinder" value= "" placeholder="First Name">
+  <input type= "text" ng-model= "last_nameBinder" value= "" placeholder="Last Name">
+  <input type= "text" ng-model= "cityBinder" value= "" placeholder="City">
+  <input type= "text" ng-model= "power_nameBinder" value= "" placeholder="Power">
+  <button type="button" name="button" ng-click= "addHero()">Add</button>
+  <h2>Display Heroes</h2>
+  <button ng-click= "getHeroes()" >Show me some Heroes</button>
+  <p ng-repeat='record in allHeroes'>{{ record.alias }} {{ record.first_name }} {{ record.last_name }}{{ record.city }} {{ record.power_name }}
+  <br><button id="deleteButton" ng-click="deleteHero($index)">delete</button>
+  </p>
+  </div>
 
   </body>
 </html>
